@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
-
+use Laravel\Fortify\Fortify;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,3 +15,6 @@ use App\Http\Controllers\ArticleController;
 */
 
 Route::get('/', [ArticleController::class, 'index']);
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
