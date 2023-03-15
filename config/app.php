@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', '教YOU'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://www.kyoyou-school.com'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ja',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ja',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
