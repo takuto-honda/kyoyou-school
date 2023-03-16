@@ -38,6 +38,12 @@ class ArticleController extends Controller
     public function update(ArticleRequest $request, Article $article)
     {
         $article->fill($request->all())->save();
-        return redirect()->route('articles.index');
+        return to_route('articles.index');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+        return to_route('articles.index');
     }
 }
