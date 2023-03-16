@@ -46,4 +46,9 @@ class ArticleController extends Controller
         $article->delete();
         return to_route('articles.index');
     }
+
+    public function show(Article $article)
+    {
+        return view('articles.show', ['article' => $article]);
+    }    
 }
