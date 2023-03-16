@@ -29,4 +29,21 @@ class ArticleController extends Controller
         $article->save();
         return to_route('articles.index');
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', ['article' => $article]);
+    }
+
+    public function update(ArticleRequest $request, Article $article)
+    {
+        $article->fill($request->all())->save();
+        return to_route('articles.index');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+        return to_route('articles.index');
+    }
 }
