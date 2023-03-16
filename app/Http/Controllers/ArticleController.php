@@ -29,4 +29,9 @@ class ArticleController extends Controller
         $article->save();
         return to_route('articles.index');
     }
+
+    public function edit(Article $article)
+    {
+        return view('articles.edit', compact('articles'));
+    }
 }
