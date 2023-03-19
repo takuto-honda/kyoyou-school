@@ -29,6 +29,11 @@ class Article extends Model
             : false;
     }
 
+    public function getCountLikesAttribute(): int
+    {
+        return $this->likes->count();
+    }
+
     protected $fillable = [
     'title',
     'body',
