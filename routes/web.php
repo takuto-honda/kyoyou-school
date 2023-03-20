@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +24,17 @@ Route::resource('/articles', ArticleController::class)->only(['show']);
 Route::prefix('articles')->name('articles.')->middleware('auth')->group(function () {
     Route::put('/{article}/like', [ArticleController::class, 'like'])->name('like');
     Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
+});
+
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('/{name}', [UserController::class, 'show'])->name('show');
+    Route::get('/{name}/likes', [UserController::class, 'likes'])->name('likes');
+    Route::get('/{name}/followings', [UserController::class, 'followings'])->name('followings');
+    Route::get('/{name}/followers', [UserController::class, 'followers'])->name('followers');
+    Route::middleware('auth')->group(function () {
+        Route::put('/{name}/follow', [UserController::class, 'follow'])->name('follow');
+        Route::delete('/{name}/follow', [UserController::class, 'unfollow'])->name('unfollow');
+    });
 });
 
 Route::get('/dashboard', function () {
