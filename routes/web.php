@@ -28,6 +28,7 @@ Route::prefix('articles')->name('articles.')->middleware('auth')->group(function
 
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', [UserController::class, 'show'])->name('show');
+    Route::get('/{name}/likes', [UserController::class, 'likes'])->name('likes');
     Route::middleware('auth')->group(function () {
         Route::put('/{name}/follow', [UserController::class, 'follow'])->name('follow');
         Route::delete('/{name}/follow', [UserController::class, 'unfollow'])->name('unfollow');
