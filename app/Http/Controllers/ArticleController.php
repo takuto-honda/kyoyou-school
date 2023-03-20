@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\Tag;
 
 class ArticleController extends Controller
 {
@@ -31,6 +32,12 @@ class ArticleController extends Controller
         $article->body = $request->body;
         $article->user_id = Auth::id();
         $article->save();
+
+        $request->tags->each(function ($tagName) use ($article) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $article->tags()->attach($tag);
+        });
+
         return to_route('articles.index');
     }
 
