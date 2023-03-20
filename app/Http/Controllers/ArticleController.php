@@ -28,9 +28,8 @@ class ArticleController extends Controller
 
     public function store(ArticleRequest $request, Article $article)
     {
-        $article->title = $request->title;
-        $article->body = $request->body;
-        $article->user_id = Auth::id();
+        $article->fill($request->all());
+        $article->user_id = $request->user()->id;
         $article->save();
 
         $request->tags->each(function ($tagName) use ($article) {

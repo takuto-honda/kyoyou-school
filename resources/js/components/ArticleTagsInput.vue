@@ -5,7 +5,7 @@
         name="tags"
         :value="tagsJson"
       >
-      <vue-tags-input
+      <vue3-tags-input
         v-model="tag"
         :tags="tags"
         placeholder="タグを5個まで入力できます"
@@ -16,11 +16,12 @@
   </template>
 
   <script>
-  import VueTagsInput from 'vue3-tags-input';
+  import { defineComponent } from 'vue';
+  import Vue3TagsInput from 'vue3-tags-input';
 
-  export default {
+  export default defineComponent({
     components: {
-      VueTagsInput,
+      Vue3TagsInput,
     },
     data() {
       return {
@@ -49,7 +50,7 @@
         return JSON.stringify(this.tags)
       },
     },
-  };
+  });
   </script>
   <style lang="css" scoped>
     .vue-tags-input {
