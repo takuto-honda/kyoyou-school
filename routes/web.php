@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -36,6 +37,7 @@ Route::prefix('articles')->name('articles.')->middleware('auth')->group(function
     Route::delete('/{article}/like', [ArticleController::class, 'unlike'])->name('unlike');
 });
 
+Route::get('/tags/{name}', [TagController::class, 'show'])->name('tags.show');
 Route::prefix('users')->name('users.')->group(function () {
     Route::get('/{name}', [UserController::class, 'show'])->name('show');
     Route::get('/{name}/likes', [UserController::class, 'likes'])->name('likes');

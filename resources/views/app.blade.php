@@ -8,12 +8,16 @@
     @yield('title')
   </title>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <!-- ファビコン -->
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.11/css/mdb.min.css" rel="stylesheet">
+  <!-- cssファイル -->
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>

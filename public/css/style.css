@@ -1,0 +1,10 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-brand img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 15px;
+}
