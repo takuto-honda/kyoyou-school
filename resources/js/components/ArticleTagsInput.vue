@@ -14,9 +14,9 @@
         @tags-changed="newTags => tags = newTags"
       />
     </div>
-  </template>
+</template>
 
-  <script>
+<script>
   import { defineComponent } from 'vue';
   import Vue3TagsInput from 'vue3-tags-input';
 
@@ -24,21 +24,20 @@
     components: {
       Vue3TagsInput,
     },
+    props: {
+      initialTags: {
+        type: Array,
+        default: [],
+      },
+      autocompleteItems: {
+        type: Array,
+        default: [],
+      },
+    },
     data() {
       return {
         tag: '',
-        tags: [],
-        autocompleteItems: [{
-          text: 'Spain',
-        }, {
-          text: 'France',
-        }, {
-          text: 'USA',
-        }, {
-          text: 'Germany',
-        }, {
-          text: 'China',
-        }],
+        tags: this.initialTags,
       };
     },
     computed: {
@@ -52,13 +51,14 @@
       },
     },
   });
-  </script>
-  <style lang="css" scoped>
+</script>
+
+<style lang="css" scoped>
     .vue-tags-input {
       max-width: inherit;
     }
-  </style>
-  <style lang="css">
+</style>
+<style lang="css">
     .vue-tags-input .ti-tag {
       background: transparent;
       border: 1px solid #747373;
@@ -70,4 +70,4 @@
     .vue-tags-input .ti-tag::before {
       content: "#";
     }
-  </style>
+</style>
