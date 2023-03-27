@@ -21,13 +21,13 @@
           type: Boolean,
           default: false,
         },
-      },
-      authorized: {
-        type: Boolean,
-        default: false,
-      },
-      endpoint: {
-        type: String,
+        authorized: {
+            type: Boolean,
+            default: true,
+        },
+        endpoint: {
+            type: String,
+        },
       },
       data() {
         return {
