@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function follow(Request $request, string $name)
     {
-        $user = User::where('name', $name)->first() ->load('followers.followers');
+        $user = User::where('name', $name)->first()->load('followers.followers');
 
         if ($user->id === $request->user()->id)
         {
